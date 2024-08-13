@@ -86,9 +86,9 @@ Route::prefix('admin')->group(function () {
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/product/{id}', function () {
-    return view('product');
+Route::get('/product/{id}', function ($id) {
+    return view('product',compact('id'));
 });
-Route::get('/products/{cat_id}', function () {
-    return view('products');
+Route::get('/products/{cat_id}', function ($cat_id) {
+    return view('products',compact('cat_id'));
 });
