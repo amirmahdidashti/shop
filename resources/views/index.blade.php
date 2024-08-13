@@ -1,5 +1,5 @@
 @extends("layout.master")
-@section("title") خانه @endsection
+@section("title")  خانه @endsection
 @section("content")
 <div class="container pb-5 mb-sm-2">
     <!-- Categories grid-->
