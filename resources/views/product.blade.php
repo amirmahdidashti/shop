@@ -1,5 +1,5 @@
 @extends("layout.master")
-@section("title") محصولات @endsection
+@section("title") اسم محصول @endsection
 @section("content")
 
 @endsection
