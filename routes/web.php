@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\SiteController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,31 +16,20 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', [SiteController::class,"index"]);
+Route::get('/product/{id}', [SiteController::class,"product"]);
+Route::get('/products/{cat_id}',[SiteController::class,"products"]);
 Route::prefix('admin')->group(function () {
-    Route::get('/', function () {
-        
-    });
+    Route::get('/', [AdminController::class,"index"]);
     Route::prefix('users')->group(function () {
-        Route::get('/', function () {
-            
-        });
-        Route::get('/{id}', function () {
-            
-        });
-        Route::post('/{id}', function () {
-            
-        });
+        Route::get('/', [UserController::class,"index"]);
+        Route::get('/{id}', [UserController::class,"index"]);
+        Route::post('/{id}', [UserController::class,"index"]);
         Route::prefix('insert')->group(function () {
-            Route::get('/', function () {
-                
-            });
-            Route::post('/', function () {
-                
-            });
+            Route::get('/', [UserController::class,"index"]);
+            Route::post('/', [UserController::class,"index"]);
         });
-        Route::get('/delete/{id}', function () {
-            
-        });
+        Route::get('/delete/{id}',[UserController::class,"index"]);
     });
     Route::prefix('products')->group(function () {
         Route::get('/', function () {
@@ -83,12 +76,4 @@ Route::prefix('admin')->group(function () {
         });
     });
 });
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/product/{id}', function ($id) {
-    return view('product',compact('id'));
-});
-Route::get('/products/{cat_id}', function ($cat_id) {
-    return view('products',compact('cat_id'));
-});
+
