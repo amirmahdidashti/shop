@@ -32,48 +32,25 @@ Route::prefix('admin')->group(function () {
         Route::get('/delete/{id}',[UserController::class,"index"]);
     });
     Route::prefix('products')->group(function () {
-        Route::get('/', function () {
-            
-        });
-        Route::get('/{id}', function () {
-            
-        });
-        Route::post('/{id}', function () {
-            
-        });
+        Route::get('/', [UserController::class,"index"]);
+        Route::get('/{id}', [UserController::class,"index"]);
+        Route::post('/{id}', [UserController::class,"index"]);
         Route::prefix('insert')->group(function () {
-            Route::get('/', function () {
-                
-            });
-            Route::post('/', function () {
-                
-            });
+            Route::get('/', [UserController::class,"index"]);
+            Route::post('/', [UserController::class,"index"]);
         });
-        Route::get('/delete/{id}', function () {
-            
-        });
+        Route::get('/delete/{id}',[UserController::class,"index"]);    
     });
     Route::prefix('categories')->group(function () {
-        Route::get('/', function () {
-            
-        });
-        Route::get('/{id}', function () {
-            
-        });
-        Route::post('/{id}', function () {
-            
-        });
+        Route::get('/', [UserController::class,"index"]);
+        Route::get('/{id}', [UserController::class,"index"]);
+        Route::post('/{id}', [UserController::class,"index"]);
         Route::prefix('insert')->group(function () {
-            Route::get('/', function () {
-                
-            });
-            Route::post('/', function () {
-                
-            });
+            Route::get('/', [UserController::class,"index"]);
+            Route::post('/', [UserController::class,"index"]);
         });
-        Route::get('/delete/{id}', function () {
-            
-        });
+        Route::get('/delete/{id}',[UserController::class,"index"]);
     });
+    
 });
 
