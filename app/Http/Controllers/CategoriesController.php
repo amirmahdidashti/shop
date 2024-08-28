@@ -12,4 +12,13 @@ class CategoriesController extends Controller
         $Categories = Category::get();
         return view('admin.categories.list',compact('Categories'));
     }
+    public function insertGet() {
+        return view('admin.categories.insert');
+    }
+    public function insertPost(Request $req) {
+        $cat = new Category();
+        $cat->name = $req->name; 
+        $cat->save();
+        return redirect()->back();
+    }
 }

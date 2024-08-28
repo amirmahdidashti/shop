@@ -1,7 +1,7 @@
 @extends("layout.master")
 @section("title")  خانه @endsection
 @section("content")
-<div class="container pb-5 mb-sm-2">
+<div dir="rtl" class="container pb-5 mb-sm-2">
     <!-- Categories grid-->
     <div class="row no-gutters">
         @foreach($cats as $cat)

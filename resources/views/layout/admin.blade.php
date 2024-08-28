@@ -17,12 +17,18 @@
             font-family: Vazirmatn;
 
         }
-
+        body{
+            background-color: #f5f5f5;
+        }
+        @yield("style")
     </style>
     
 </head>
 
 <body>
+    <div class="insert text-center my-2">
+        <a class="btn btn-primary" href="/admin/@yield('table')/insert">اضافه کردن</a>
+    </div>
     <div class="text-center my-2">
         <a class="btn btn-primary" href="/admin/products">محصولات</a>
         <a class="btn btn-primary" href="/admin/users">کاربران</a>

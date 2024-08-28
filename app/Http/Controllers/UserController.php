@@ -10,4 +10,15 @@ class UserController extends Controller
         $Users = User::get();
         return view('admin.users.list',compact('Users'));
     }
+    public function insertGet() {
+        return view('admin.users.insert');
+    }
+    public function insertPost(Request $req) {
+        $User = new User();
+        $User->name = $req->name; 
+        $User->email = $req->email; 
+        $User->password = $req->password; 
+        $User->save();
+        return redirect()->back();
+    }
 }

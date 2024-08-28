@@ -1,5 +1,7 @@
 @extends("layout.admin")
 @section("title")  کاربران @endsection
+@section("table")users
+@endsection
 @section("content") 
 <table dir="rtl" class="table text-right table-striped">
   <thead>

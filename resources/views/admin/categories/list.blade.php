@@ -1,5 +1,7 @@
 @extends("layout.admin")
 @section("title")  دسته بندی ها @endsection
+@section("table")categories
+@endsection
 @section("content") 
 <table dir="rtl" class="table text-right table-striped">
   <thead>

@@ -3,7 +3,7 @@
 @section("title")محصولات دسته بندی  {{$cat_name}} @endsection
 @section("content")
 <h2 dir="rtl" class="text-center">محصولات دسته بندی  {{$cat_name}}</h2>
-<div class="container pb- mb-sm-2">
+<div dir="rtl" class="container pb- mb-sm-2">
     <!-- Categories grid-->
     <div class="row no-gutters">
         @foreach($products as $product)

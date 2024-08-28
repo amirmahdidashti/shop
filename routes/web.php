@@ -23,33 +23,34 @@ Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class,"list"]);
     Route::prefix('users')->group(function () {
         Route::get('/', [UserController::class,"list"]);
-        Route::get('/{id}', [UserController::class,"index"]);
-        Route::post('/{id}', [UserController::class,"index"]);
         Route::prefix('insert')->group(function () {
-            Route::get('/', [UserController::class,"index"]);
-            Route::post('/', [UserController::class,"index"]);
+            Route::get('/', [UserController::class,"insertGet"]);
+            Route::post('/', [UserController::class,"insertPost"]);
         });
         Route::get('/delete/{id}',[UserController::class,"index"]);
+        Route::get('/{id}', [UserController::class,"index"]);
+        Route::post('/{id}', [UserController::class,"index"]);
+        
     });
     Route::prefix('products')->group(function () {
         Route::get('/', [ProductsController::class,"list"]);
+        Route::prefix('insert')->group(function () {
+            Route::get('/', [ProductsController::class,"insertGet"]);
+            Route::post('/', [ProductsController::class,"insertPost"]);
+        });
+        Route::get('/delete/{id}',[ProductsController::class,"index"]);    
         Route::get('/{id}', [ProductsController::class,"index"]);
         Route::post('/{id}', [ProductsController::class,"index"]);
-        Route::prefix('insert')->group(function () {
-            Route::get('/', [ProductsController::class,"index"]);
-            Route::post('/', [ProducstController::class,"index"]);
-        });
-        Route::get('/delete/{id}',[ProducstController::class,"index"]);    
     });
     Route::prefix('categories')->group(function () {
         Route::get('/', [CategoriesController::class,"list"]);
-        Route::get('/{id}', [CategoriesController::class,"index"]);
-        Route::post('/{id}', [CategoriesController::class,"index"]);
         Route::prefix('insert')->group(function () {
-            Route::get('/', [CategoriesController::class,"index"]);
-            Route::post('/', [CategoriesController::class,"index"]);
+            Route::get('/', [CategoriesController::class,"insertGet"]);
+            Route::post('/', [CategoriesController::class,"insertPost"]);
         });
-        Route::get('/delete/{id}',[CategoriesController::class,"index"]);
+        Route::get('/delete/{id}',[CategoriesController::class,"list"]);
+        Route::get('/{id}', [CategoriesController::class,"list"]);
+        Route::post('/{id}', [CategoriesController::class,"list"]);
     });
     
 });
