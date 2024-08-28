@@ -1,5 +1,5 @@
 @extends("layout.admin")
-@section("title")  محصولات @endsection
+@section("title")  کاربران @endsection
 @section("content") 
 <table dir="rtl" class="table text-right table-striped">
   <thead>
