@@ -20,7 +20,8 @@
       <td>{{$product->name}}</td>
       <td>{{$product->price}}</td>
       <td>{{$product->cat_id}}</td>
-      <td>بزودی</td>
+      <td><a href="/admin/products/{{$product->id}}" class="btn-primary btn">ویرایش</a>
+      <a href="/admin/products/delete/{{$product->id}}" class="btn-danger btn">حذف</a></td>
     </tr>
     @endforeach
   </tbody>

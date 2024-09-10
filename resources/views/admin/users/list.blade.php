@@ -18,7 +18,8 @@
       <th scope="row">{{$User->id}}</th>
       <td>{{$User->name}}</td>
       <td>{{$User->email}}</td>
-      <td>بزودی</td>
+      <td><a href="/admin/users/delete/{{$User->id}}" class="btn-danger btn">حذف</a>
+      <a href="/admin/users/{{$User->id}}" class="btn-primary btn">ویرایش</a></td>
     </tr>
     @endforeach
   </tbody>

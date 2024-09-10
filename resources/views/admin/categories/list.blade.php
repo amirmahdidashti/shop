@@ -16,7 +16,10 @@
     <tr >
       <th scope="row">{{$Category->id}}</th>
       <td>{{$Category->name}}</td>
-      <td>بزودی</td>
+      <td>
+        <a href="/admin/categories/delete/{{$Category->id}}" class="btn-danger btn">حذف</a>
+        <a href="/admin/categories/{{$Category->id}}" class="btn-primary btn">ویرایش</a>
+      </td>
     </tr>
     @endforeach
   </tbody>

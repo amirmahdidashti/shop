@@ -21,4 +21,22 @@ class CategoriesController extends Controller
         $cat->save();
         return redirect()->back();
     }
+    public function delete($id) {
+        Category::find($id)->delete();
+        return redirect()->back();
+    }
+    
+    public function editGet($id)
+    {
+        $Category = Category::find($id);
+        return view('admin.categories.edit',compact('Category'));
+    }
+    public function editPost(Request $req,$id)
+    {
+        $Category = Category::find($id);
+        $Category->name = $req->name;
+        $Category->save();
+        return redirect('admin/categories');
+    }
+    
 }

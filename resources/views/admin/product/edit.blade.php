@@ -1,5 +1,5 @@
 @extends("layout.admin")
-@section("title")ثبت محصول @endsection
+@section("title")ویرایش محصول @endsection
 @section("style")
 .form-signin {
 width: 100%;
@@ -27,15 +27,19 @@ display:none;
 <form dir="rtl" action="" method="post" class="form-signin text-center">
   @csrf
   <h1 class="h3 mb-3 font-weight-normal">لطفا اطلاعات را وارد کنید</h1>
-  <input type="text" class="form-control" name="name" placeholder="نام محصول" required>
-  <input type="number" class="form-control" name="price" placeholder="قیمت محصول" required>
+  <input type="text" class="form-control" name="name" value="{{ $product->name }}" placeholder="نام محصول" required>
+  <input type="number" class="form-control" name="price" value="{{ $product->price }}" placeholder="قیمت محصول" required>
   <select  class="form-control" name="cat_id">
     <option value="">بدون دسته بندی</option>
     @foreach ($cats as $cat)
-    <option value="{{$cat->id}}">{{$cat->name}}</option>
+    <option
+    @if ($product->cat_id == $cat->id)
+    selected 
+    @endif
+    value="{{ $cat->id }}">{{ $cat->name }}</option>
     @endforeach
   </select>
-  <textarea name="desc" class="form-control" placeholder="توضیحات محصول" required cols="30" rows="10"></textarea>
+  <textarea name="desc" class="form-control" placeholder="توضیحات محصول" required cols="30" rows="10">{{ $product->desc }}</textarea>
   <button class="btn btn-lg btn-primary btn-block" type="submit">ذخیره</button>
 </form>
 @endsection

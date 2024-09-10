@@ -27,7 +27,7 @@ Route::prefix('admin')->group(function () {
             Route::get('/', [UserController::class,"insertGet"]);
             Route::post('/', [UserController::class,"insertPost"]);
         });
-        Route::get('/delete/{id}',[UserController::class,"index"]);
+        Route::get('/delete/{id}',[UserController::class,"delete"]);
         Route::get('/{id}', [UserController::class,"index"]);
         Route::post('/{id}', [UserController::class,"index"]);
         
@@ -38,9 +38,9 @@ Route::prefix('admin')->group(function () {
             Route::get('/', [ProductsController::class,"insertGet"]);
             Route::post('/', [ProductsController::class,"insertPost"]);
         });
-        Route::get('/delete/{id}',[ProductsController::class,"index"]);    
-        Route::get('/{id}', [ProductsController::class,"index"]);
-        Route::post('/{id}', [ProductsController::class,"index"]);
+        Route::get('/delete/{id}',[ProductsController::class,"delete"]);    
+        Route::get('/{id}', [ProductsController::class,"editGet"]);
+        Route::post('/{id}', [ProductsController::class,"editPost"]);
     });
     Route::prefix('categories')->group(function () {
         Route::get('/', [CategoriesController::class,"list"]);
@@ -48,9 +48,9 @@ Route::prefix('admin')->group(function () {
             Route::get('/', [CategoriesController::class,"insertGet"]);
             Route::post('/', [CategoriesController::class,"insertPost"]);
         });
-        Route::get('/delete/{id}',[CategoriesController::class,"list"]);
-        Route::get('/{id}', [CategoriesController::class,"list"]);
-        Route::post('/{id}', [CategoriesController::class,"list"]);
+        Route::get('/delete/{id}',[CategoriesController::class,"delete"]);
+        Route::get('/{id}', [CategoriesController::class,"editGet"]);
+        Route::post('/{id}', [CategoriesController::class,"editPost"]);
     });
     
 });

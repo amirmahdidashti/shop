@@ -21,4 +21,20 @@ class UserController extends Controller
         $User->save();
         return redirect()->back();
     }
+    public function delete($id) {
+        User::find($id)->delete();
+        return redirect()->back();
+    }
+    public function editGet($id) {
+        $User = User::find($id);
+        return view('admin.users.edit',compact('User'));
+    }
+    public function editPost(Request $req, $id) {
+        $User = User::find($id);
+        $User->name = $req->name; 
+        $User->email = $req->email; 
+        $User->password = $req->password; 
+        $User->save();
+        return redirect('admin/users');
+    }
 }
