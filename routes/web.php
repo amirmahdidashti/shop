@@ -28,8 +28,8 @@ Route::prefix('admin')->group(function () {
             Route::post('/', [UserController::class,"insertPost"]);
         });
         Route::get('/delete/{id}',[UserController::class,"delete"]);
-        Route::get('/{id}', [UserController::class,"index"]);
-        Route::post('/{id}', [UserController::class,"index"]);
+        Route::get('/{id}', [UserController::class,"editGet"]);
+        Route::post('/{id}', [UserController::class,"editPost"]);
         
     });
     Route::prefix('products')->group(function () {
