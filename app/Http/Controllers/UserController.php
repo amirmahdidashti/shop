@@ -18,11 +18,24 @@ class UserController extends Controller
         $User->name = $req->name; 
         $User->email = $req->email; 
         $User->password = $req->password; 
+        if($req->hasFile('img')){
+            $img = $req->file('img');
+            $imgName = time().$img->getClientOriginalExtension();
+            $img->move('files/users/',$imgName);
+            $User->img = 'files/users/'.$imgName;
+        }
         $User->save();
         return redirect('admin/users');
     }
     public function delete($id) {
         User::find($id)->delete();
+        return redirect()->back();
+    }
+    
+    public function deleteImg($id) {
+        $User = User::find($id);
+        $User->img = 'files/users/default.jpg';
+        $User->save();
         return redirect()->back();
     }
     public function editGet($id) {
@@ -34,6 +47,12 @@ class UserController extends Controller
         $User->name = $req->name; 
         $User->email = $req->email; 
         $User->password = $req->password; 
+        if($req->hasFile('img')){
+            $img = $req->file('img');
+            $imgName = time().$img->getClientOriginalExtension();
+            $img->move('files/users/',$imgName);
+            $User->img = 'files/users/'.$imgName;
+        }
         $User->save();
         return redirect('admin/users');
     }

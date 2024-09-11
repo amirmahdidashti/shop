@@ -18,6 +18,12 @@ class CategoriesController extends Controller
     public function insertPost(Request $req) {
         $cat = new Category();
         $cat->name = $req->name; 
+        if ($req->hasFile('img')) {
+            $img = $req->file('img');
+            $filename = time() . '.' . $img->getClientOriginalExtension();
+            $img->move('files/categories', $filename);
+            $cat->img = 'files/categories/' . $filename;
+        }
         $cat->save();
         return redirect('admin/categories');
     }
@@ -26,6 +32,13 @@ class CategoriesController extends Controller
         return redirect()->back();
     }
     
+    public function deleteImg($id)
+    {
+        $Category = Category::find($id);
+        $Category->img = 'files/categories/default.jpg';
+        $Category->save();
+        return redirect()->back();
+    }
     public function editGet($id)
     {
         $Category = Category::find($id);
@@ -35,6 +48,12 @@ class CategoriesController extends Controller
     {
         $Category = Category::find($id);
         $Category->name = $req->name;
+        if ($req->hasFile('img')) {
+            $img = $req->file('img');
+            $filename = time() . '.' . $img->getClientOriginalExtension();
+            $img->move('files/categories', $filename);
+            $Category->img = 'files/categories/' . $filename;
+        }
         $Category->save();
         return redirect('admin/categories');
     }

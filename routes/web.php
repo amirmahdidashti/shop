@@ -27,6 +27,7 @@ Route::prefix('admin')->group(function () {
             Route::get('/', [UserController::class,"insertGet"]);
             Route::post('/', [UserController::class,"insertPost"]);
         });
+        Route::get('/delete/img/{id}',[UserController::class,"deleteImg"]);
         Route::get('/delete/{id}',[UserController::class,"delete"]);
         Route::get('/{id}', [UserController::class,"editGet"]);
         Route::post('/{id}', [UserController::class,"editPost"]);
@@ -49,6 +50,7 @@ Route::prefix('admin')->group(function () {
             Route::get('/', [CategoriesController::class,"insertGet"]);
             Route::post('/', [CategoriesController::class,"insertPost"]);
         });
+        Route::get('/delete/img/{id}',[CategoriesController::class,"deleteImg"]);
         Route::get('/delete/{id}',[CategoriesController::class,"delete"]);
         Route::get('/{id}', [CategoriesController::class,"editGet"]);
         Route::post('/{id}', [CategoriesController::class,"editPost"]);

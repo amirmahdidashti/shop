@@ -25,7 +25,7 @@
         img,
         figure {
             max-width: 100%;
-            height: 232px;
+            height: auto;
             vertical-align: middle;
         }
     </style>

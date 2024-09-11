@@ -26,8 +26,9 @@
 </head>
 
 <body>
-    <div class="insert text-center my-2">
-        <a class="btn btn-primary" href="/admin/@yield('table')/insert">اضافه کردن</a>
+    <div style="display:flex;justify-content: space-between;">
+        <a class="btn btn-primary" href="/">برگشت به سایت</a>
+        <a class="insert btn btn-primary" href="/admin/@yield('table')/insert">اضافه کردن</a>
     </div>
     <div class="text-center my-2">
         <a class="btn btn-primary" href="/admin/products">محصولات</a>

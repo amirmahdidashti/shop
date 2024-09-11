@@ -35,7 +35,7 @@ display:none;
     <option value="{{$cat->id}}">{{$cat->name}}</option>
     @endforeach
   </select>
-  <input type="file" name="img" class="form-control">
+  <input type="file" name="img" class="form-control" accept=".png,.jpg,.jpeg,.gif,.bmp,.ico">
   <textarea name="desc" class="form-control" placeholder="توضیحات محصول" required cols="30" rows="10"></textarea>
   <button class="btn btn-lg btn-primary btn-block" type="submit">ذخیره</button>
 </form>

@@ -9,7 +9,7 @@
         <div class="col-lg-3  col-sm-4 col-6 category-card border border-collapse">
             <div class="card border-0">
                 <a class="d-block" href="/products/{{$cat->id}}"><img class="d-block"
-                        src="https://www.bootdey.com/image/340x232/FF8C00/000000" alt="{{$cat->name}}"></a>
+                        src="{{asset($cat->img)}}" alt="{{$cat->name}}"></a>
                 <div class="card-body pb-2">
                     <h2 class="h6 mb-2 text-right">{{$cat->name}}</h2>
                 </div>

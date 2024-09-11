@@ -24,12 +24,13 @@ display:none;
 }
 @endsection
 @section("content") 
-<form dir="rtl" action="" method="post" class="form-signin text-center">
+<form dir="rtl" action="" method="post" class="form-signin text-center" enctype="multipart/form-data">
   @csrf
   <h1 class="h3 mb-3 font-weight-normal">لطفا اطلاعات را وارد کنید</h1>
   <input type="text" class="form-control"  name="name" value="{{ $User->name }}" placeholder="نام کاربر" required>
   <input type="email" class="form-control" name="email" value="{{ $User->email }}" placeholder="ایمیل کاربر" required>
-  <input type="password" class="form-control" name="password" value="{{ $User->password }}"  placeholder="پسورد کاربر" required>
+  <input type="password" class="form-control" name="password" value=""  placeholder="پسورد کاربر" required>
+  <input type="file" class="form-control" name="img" accept=".png,.jpg,.jpeg,.gif,.bmp,.ico">
   <button class="btn btn-lg btn-primary btn-block" type="submit">ذخیره</button>
 </form>
 @endsection
