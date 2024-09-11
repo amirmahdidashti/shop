@@ -19,7 +19,7 @@ class UserController extends Controller
         $User->email = $req->email; 
         $User->password = $req->password; 
         $User->save();
-        return redirect()->back();
+        return redirect('admin/users');
     }
     public function delete($id) {
         User::find($id)->delete();

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->biginteger('cat_id')->nullable();
             $table->integer('price');
             $table->text('desc');
+            $table->string('img')->default('files/products/default.jpg');
             $table->timestamps();
         });
     }

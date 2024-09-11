@@ -19,7 +19,7 @@ class CategoriesController extends Controller
         $cat = new Category();
         $cat->name = $req->name; 
         $cat->save();
-        return redirect()->back();
+        return redirect('admin/categories');
     }
     public function delete($id) {
         Category::find($id)->delete();

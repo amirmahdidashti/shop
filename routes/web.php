@@ -38,6 +38,7 @@ Route::prefix('admin')->group(function () {
             Route::get('/', [ProductsController::class,"insertGet"]);
             Route::post('/', [ProductsController::class,"insertPost"]);
         });
+        Route::get('/delete/img/{id}',[ProductsController::class,"deleteImg"]);    
         Route::get('/delete/{id}',[ProductsController::class,"delete"]);    
         Route::get('/{id}', [ProductsController::class,"editGet"]);
         Route::post('/{id}', [ProductsController::class,"editPost"]);
