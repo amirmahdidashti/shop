@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    
     <title>@yield("title")</title>
     <style>
         * {
@@ -26,17 +27,22 @@
 </head>
 
 <body>
-    <div style="display:flex;justify-content: space-between;">
-        <a class="btn btn-primary" href="/">برگشت به سایت</a>
-        <a class="insert btn btn-primary" href="/admin/@yield('table')/insert">اضافه کردن</a>
-    </div>
+    <a class="btn btn-primary" href="/">برگشت به سایت</a>
     <div class="text-center my-2">
         <a class="btn btn-primary" href="/admin/products">محصولات</a>
         <a class="btn btn-primary" href="/admin/users">کاربران</a>
         <a class="btn btn-primary" href="/admin/categories">دسته بندی</a>
     </div>
     @yield("content")
-    
+    <script>
+        $(".btn").click(function(){
+            $(this).hide();
+             setTimeout(showbtn, 2000);
+        });
+       function showbtn(){
+        $(".btn").show();
+        }
+    </script>
 </body>
 
 </html>

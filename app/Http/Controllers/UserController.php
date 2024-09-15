@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\User;
+use Validator;
 class UserController extends Controller
 {
+    
     public function list() {
         $Users = User::get();
         return view('admin.users.list',compact('Users'));
@@ -14,6 +16,23 @@ class UserController extends Controller
         return view('admin.users.insert');
     }
     public function insertPost(Request $req) {
+        $messages = [
+            'name.required' => 'باید حتما اسمت رو بنویسی.',
+            'email.required' => 'باید حتما ایمیلت رو بنویسی.',
+            'password.required'    => 'باید حتما رزمت رو بنویسی.'
+        ];
+        $validationRules  = [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ];
+        $validator = Validator::make($req->all(),$validationRules ,$messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         $User = new User();
         $User->name = $req->name; 
         $User->email = $req->email; 
@@ -43,10 +62,27 @@ class UserController extends Controller
         return view('admin.users.edit',compact('User'));
     }
     public function editPost(Request $req, $id) {
+        $messages = [
+            'name.required' => 'باید حتما اسمت رو بنویسی.',
+            'email.required' => 'باید حتما ایمیلت رو بنویسی.',
+        ];
+        $validationRules  = [
+            'name' => 'required',
+            'email' => 'required',
+        ];
+        $validator = Validator::make($req->all(),$validationRules ,$messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         $User = User::find($id);
         $User->name = $req->name; 
         $User->email = $req->email; 
-        $User->password = $req->password; 
+        if($req->password){
+            $User->password = $req->password; 
+        }
         if($req->hasFile('img')){
             $img = $req->file('img');
             $imgName = time().$img->getClientOriginalExtension();
