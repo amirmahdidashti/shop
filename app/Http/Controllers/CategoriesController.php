@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\Product;
+use Validator;
 use App\models\Category;
 
 class CategoriesController extends Controller
@@ -16,6 +17,18 @@ class CategoriesController extends Controller
         return view('admin.categories.insert');
     }
     public function insertPost(Request $req) {
+        $messages = [
+            'name.required' => 'باید حتما نام دسته بندی رو بنویسی.',
+        ];
+        $validationRules  = [
+            'name' => 'required'
+        ];
+        $validator = Validator::make($req->all(),$validationRules ,$messages);
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         $cat = new Category();
         $cat->name = $req->name; 
         if ($req->hasFile('img')) {
@@ -45,7 +58,19 @@ class CategoriesController extends Controller
         return view('admin.categories.edit',compact('Category'));
     }
     public function editPost(Request $req,$id)
-    {
+    {   
+        $messages = [
+            'name.required' => 'باید حتما نام دسته بندی رو بنویسی.',
+        ];
+        $validationRules  = [
+            'name' => 'required'
+        ];
+        $validator = Validator::make($req->all(),$validationRules ,$messages);
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         $Category = Category::find($id);
         $Category->name = $req->name;
         if ($req->hasFile('img')) {

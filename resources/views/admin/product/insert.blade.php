@@ -27,16 +27,31 @@ display:none;
 <form dir="rtl" action="" method="post" class="form-signin text-center " enctype="multipart/form-data">
   @csrf
   <h1 class="h3 mb-3 font-weight-normal">لطفا اطلاعات را وارد کنید</h1>
-  <input type="text" class="form-control" name="name" placeholder="نام محصول" required>
-  <input type="number" class="form-control" name="price" placeholder="قیمت محصول" required>
-  <select  class="form-control" name="cat_id">
+  @error('name')
+    <p>{{ $message }}</p>
+  @enderror
+  <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" placeholder="نام محصول" required>
+  @error('price')
+    <p>{{ $message }}</p>
+  @enderror
+  <input type="number" class="form-control @error('price') is-invalid @enderror" name="price" placeholder="قیمت محصول" required>
+  @error('cat_id')
+    <p>{{ $message }}</p>
+  @enderror
+  <select  class="form-control @error('cat_id') is-invalid @enderror" name="cat_id">
     <option value="">بدون دسته بندی</option>
     @foreach ($cats as $cat)
     <option value="{{$cat->id}}">{{$cat->name}}</option>
     @endforeach
   </select>
-  <input type="file" name="img" class="form-control" accept=".png,.jpg,.jpeg,.gif,.bmp,.ico">
-  <textarea name="desc" class="form-control" placeholder="توضیحات محصول" required cols="30" rows="10"></textarea>
+  @error('img')
+    <p>{{ $message }}</p>
+  @enderror
+  <input type="file" name="img" class="form-control @error('img') is-invalid @enderror" accept=".png,.jpg,.jpeg,.gif,.bmp,.ico">
+  @error('desc')
+    <p>{{ $message }}</p>
+  @enderror
+  <textarea name="desc" class="form-control @error('desc') is-invalid @enderror" placeholder="توضیحات محصول" required cols="30" rows="10"></textarea>
   <button class="btn btn-lg btn-primary btn-block" type="submit">ذخیره</button>
 </form>
 @endsection

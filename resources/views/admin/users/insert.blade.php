@@ -32,9 +32,18 @@
     <p >{{ $message }}</p>
   @enderror
   <input type="text" class="form-control @error('name') is-invalid @enderror"  name="name"  placeholder="نام کاربر" >
-  <input type="email" class="form-control"  name="email" placeholder="ایمیل کاربر" >
-  <input type="password" class="form-control"  name="password" placeholder="پسورد کاربر" >
-  <input type="file" class="form-control" name="img" >
+  @error('email')
+    <p >{{ $message }}</p>
+  @enderror
+  <input type="email" class="form-control  @error('email') is-invalid @enderror"  name="email" placeholder="ایمیل کاربر" >
+  @error('password')
+    <p >{{ $message }}</p>
+  @enderror
+  <input type="password" class="form-control  @error('password') is-invalid @enderror"  name="password" placeholder="پسورد کاربر" >
+  @error('img')
+    <p >{{ $message }}</p>
+  @enderror
+  <input type="file" class="form-control" name="img" accept=".png,.jpg,.jpeg,.gif,.bmp,.ico">
   <button class="btn btn-lg btn-primary btn-block" type="submit">ذخیره</button>
 
 </form>

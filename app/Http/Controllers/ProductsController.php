@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\Product;
+use Validator;
 use App\models\Category;
 class ProductsController extends Controller
 {
@@ -25,6 +26,25 @@ class ProductsController extends Controller
         return view('admin.product.insert',compact('cats'));
     }
     public function insertPost(Request $req) {
+        $messages = [
+            'name.required' => 'باید حتما نام محصول رو بنویسی.',
+            'price.required' => 'باید حتما قیمت محصول رو بنویسی.',
+            'desc.required' => 'باید حتما توضیحات محصول رو بنویسی.',
+            'cat_id.exists' => 'این دسته بندی وجود نداره.'
+        ];
+        $validationRules  = [
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'desc' => 'required',
+            'cat_id' => 'nullable|exists:categories,id'
+        ];
+        $validator = Validator::make($req->all(),$validationRules ,$messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         $Product = new Product();
         $Product->name = $req->name; 
         $Product->price = $req->price; 
@@ -56,6 +76,24 @@ class ProductsController extends Controller
         return view('admin.product.edit',compact('product','cats'));
     }
     public function editPost(Request $req , $id) {
+        $messages = [
+            'name.required' => 'باید حتما نام محصول رو بنویسی.',
+            'price.required' => 'باید حتما قیمت محصول رو بنویسی.',
+            'desc.required' => 'باید حتما توضیحات محصول رو بنویسی.',
+            'cat_id.exists' => 'این دسته بندی وجود نداره.'
+        ];
+        $validationRules  = [
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'desc' => 'required',
+            'cat_id' => 'nullable|exists:categories,id'
+        ];
+        $validator = Validator::make($req->all(),$validationRules ,$messages);
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         $Product = Product::find($id);
         $Product->name = $req->name; 
         $Product->price = $req->price; 
