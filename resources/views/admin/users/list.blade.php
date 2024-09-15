@@ -3,6 +3,9 @@
 @section("table")users
 @endsection
 @section("content") 
+<div class="text-center my-2">
+<a class="text-center btn btn-primary" href="/admin/users/insert">اضافه کردن</a>
+</div>
 <table dir="rtl" class="table text-right table-striped">
   <thead>
     <tr>
