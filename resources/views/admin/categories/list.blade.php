@@ -6,6 +6,7 @@
 <div class="text-center my-2">
 <a class="text-center btn btn-primary" href="/admin/categories/insert">اضافه کردن</a>
 </div>
+<div class="table">
 <table dir="rtl" class="table text-right table-striped">
   <thead>
     <tr>
@@ -31,4 +32,5 @@
     @endforeach
   </tbody>
 </table>
+</div>
 @endsection

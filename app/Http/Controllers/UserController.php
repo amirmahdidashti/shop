@@ -40,8 +40,8 @@ class UserController extends Controller
         $User->password = $req->password; 
         if($req->hasFile('img')){
             $img = $req->file('img');
-            $imgName = time().$img->getClientOriginalExtension();
-            $img->move('files/users/',$imgName);
+            $imgName = time().".".$img->getClientOriginalExtension();
+            $img->move('files/users/',".".$imgName);
             $User->img = 'files/users/'.$imgName;
         }
         else {
@@ -91,7 +91,7 @@ class UserController extends Controller
         }
         if($req->hasFile('img')){
             $img = $req->file('img');
-            $imgName = time().$img->getClientOriginalExtension();
+            $imgName = time().".".$img->getClientOriginalExtension();
             $img->move('files/users/',$imgName);
             $User->img = 'files/users/'.$imgName;
         }

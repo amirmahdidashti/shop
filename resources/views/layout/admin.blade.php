@@ -18,6 +18,9 @@
             font-family: Vazirmatn;
 
         }
+        .table{
+            overflow-x: auto;
+        }
         body{
             background-color: #f5f5f5;
         }
