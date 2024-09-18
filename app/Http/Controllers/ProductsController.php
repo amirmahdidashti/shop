@@ -29,6 +29,7 @@ class ProductsController extends Controller
         $messages = [
             'name.required' => 'باید حتما نام محصول رو بنویسی.',
             'price.required' => 'باید حتما قیمت محصول رو بنویسی.',
+            'price.numeric' => 'قیمت محصول باید عدد باشد.',
             'desc.required' => 'باید حتما توضیحات محصول رو بنویسی.',
             'cat_id.exists' => 'این دسته بندی وجود نداره.'
         ];
@@ -79,6 +80,7 @@ class ProductsController extends Controller
         $messages = [
             'name.required' => 'باید حتما نام محصول رو بنویسی.',
             'price.required' => 'باید حتما قیمت محصول رو بنویسی.',
+            'price.numeric' => 'قیمت محصول باید عدد باشد.',
             'desc.required' => 'باید حتما توضیحات محصول رو بنویسی.',
             'cat_id.exists' => 'این دسته بندی وجود نداره.'
         ];

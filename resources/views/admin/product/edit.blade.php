@@ -30,11 +30,11 @@ display:none;
   @error('name')
     <p>{{ $message }}</p>
   @enderror
-  <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{old('name',$product->name)}}" placeholder="نام محصول" required>
+  <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{old('name',$product->name)}}" placeholder="نام محصول"   >
   @error('price')
     <p>{{ $message }}</p>
   @enderror
-  <input type="number" class="form-control @error('price') is-invalid @enderror" name="price" value="{{old('price',$product->price)}}" placeholder="قیمت محصول" required>
+  <input type="number" class="form-control @error('price') is-invalid @enderror" name="price" value="{{old('price',$product->price)}}" placeholder="قیمت محصول"   >
   @error('cat_id')
     <p>{{ $message }}</p>
   @enderror
@@ -51,7 +51,7 @@ display:none;
   @error('desc')
     <p>{{ $message }}</p>
   @enderror
-  <textarea name="desc" class="form-control @error('desc') is-invalid @enderror" placeholder="توضیحات محصول" required cols="30" rows="10">{{old('desc',$product->desc)}}</textarea>
+  <textarea name="desc" class="form-control @error('desc') is-invalid @enderror" placeholder="توضیحات محصول"    cols="30" rows="10">{{old('desc',$product->desc)}}</textarea>
   <button class="btn btn-lg btn-primary btn-block" type="submit">ذخیره</button>
 </form>
 @endsection

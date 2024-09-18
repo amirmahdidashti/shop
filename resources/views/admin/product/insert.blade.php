@@ -30,18 +30,18 @@ display:none;
   @error('name')
     <p>{{ $message }}</p>
   @enderror
-  <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" placeholder="نام محصول" required>
+  <input type="text" class="form-control  @error('name') is-invalid @enderror" value="{{old("name")}}" name="name" placeholder="نام محصول"  >
   @error('price')
     <p>{{ $message }}</p>
   @enderror
-  <input type="number" class="form-control @error('price') is-invalid @enderror" name="price" placeholder="قیمت محصول" required>
+  <input type="number" class="form-control @error('price') is-invalid @enderror" value="{{old("price")}}" name="price" placeholder="قیمت محصول"  >
   @error('cat_id')
     <p>{{ $message }}</p>
   @enderror
-  <select  class="form-control @error('cat_id') is-invalid @enderror" name="cat_id">
+  <select  class="form-control @error('cat_id') is-invalid @enderror"  name="cat_id">
     <option value="">بدون دسته بندی</option>
     @foreach ($cats as $cat)
-    <option value="{{$cat->id}}">{{$cat->name}}</option>
+    <option value="{{$cat->id}}" {{$cat->id == old('cat_id')?'selected':''}}>{{$cat->name}}</option>
     @endforeach
   </select>
   @error('img')
@@ -51,7 +51,7 @@ display:none;
   @error('desc')
     <p>{{ $message }}</p>
   @enderror
-  <textarea name="desc" class="form-control @error('desc') is-invalid @enderror" placeholder="توضیحات محصول" required cols="30" rows="10"></textarea>
+  <textarea name="desc" class="form-control @error('desc') is-invalid @enderror" placeholder="توضیحات محصول" value="{{old(key: "desc")}}"   cols="30" rows="10"></textarea>
   <button class="btn btn-lg btn-primary btn-block" type="submit">ذخیره</button>
 </form>
 @endsection

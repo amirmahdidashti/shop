@@ -19,12 +19,13 @@ class UserController extends Controller
         $messages = [
             'name.required' => 'باید حتما اسمت رو بنویسی.',
             'email.required' => 'باید حتما ایمیلت رو بنویسی.',
-            'password.required'    => 'باید حتما رزمت رو بنویسی.'
+            'password.required'    => 'باید حتما رمزمت رو بنویسی.',
+            'password.min'    => 'رمز باید حداقل 6 کاراکتر باشد.'
         ];
         $validationRules  = [
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required'
+            'password' => 'required|min:6'
         ];
         $validator = Validator::make($req->all(),$validationRules ,$messages);
 
@@ -43,6 +44,9 @@ class UserController extends Controller
             $img->move('files/users/',$imgName);
             $User->img = 'files/users/'.$imgName;
         }
+        else {
+            $User->img = 'https://www.gravatar.com/avatar/'.hash( 'sha256', strtolower( trim( $User->email ) )) ;
+        }
         $User->save();
         return redirect('admin/users');
     }
@@ -53,7 +57,7 @@ class UserController extends Controller
     
     public function deleteImg($id) {
         $User = User::find($id);
-        $User->img = 'files/users/default.jpg';
+        $User->img = 'https://www.gravatar.com/avatar/'.hash( 'sha256', strtolower( trim( $User->email ) )) ;
         $User->save();
         return redirect()->back();
     }
@@ -65,10 +69,12 @@ class UserController extends Controller
         $messages = [
             'name.required' => 'باید حتما اسمت رو بنویسی.',
             'email.required' => 'باید حتما ایمیلت رو بنویسی.',
+            'password.min'    => 'رمز باید حداقل 6 کاراکتر باشد.'
         ];
         $validationRules  = [
             'name' => 'required',
             'email' => 'required',
+            'password' => 'nullable|min:6'
         ];
         $validator = Validator::make($req->all(),$validationRules ,$messages);
 
@@ -89,6 +95,7 @@ class UserController extends Controller
             $img->move('files/users/',$imgName);
             $User->img = 'files/users/'.$imgName;
         }
+        
         $User->save();
         return redirect('admin/users');
     }

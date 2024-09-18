@@ -30,7 +30,7 @@
   @error('name')
     <p>{{ $message }}</p>
   @enderror
-  <input type="text" class="form-control @error('name') is-invalid @enderror"  name="name" placeholder="نام دسته بندی" required>
+  <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{old("name")}}"  name="name" placeholder="نام دسته بندی" >
   @error('img')
     <p>{{ $message }}</p>
   @enderror

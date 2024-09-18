@@ -31,15 +31,15 @@
   @error('name')
     <p >{{ $message }}</p>
   @enderror
-  <input type="text" class="form-control @error('name') is-invalid @enderror"  name="name"  placeholder="نام کاربر" >
+  <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{old("name")}}"  name="name"  placeholder="نام کاربر" >
   @error('email')
     <p >{{ $message }}</p>
   @enderror
-  <input type="email" class="form-control  @error('email') is-invalid @enderror"  name="email" placeholder="ایمیل کاربر" >
+  <input type="email" class="form-control  @error('email') is-invalid @enderror" value="{{old("email")}}"  name="email" placeholder="ایمیل کاربر" >
   @error('password')
     <p >{{ $message }}</p>
   @enderror
-  <input type="password" class="form-control  @error('password') is-invalid @enderror"  name="password" placeholder="پسورد کاربر" >
+  <input type="password" class="form-control  @error('password') is-invalid @enderror" value="{{old(key: "password")}}"  name="password" placeholder="پسورد کاربر" >
   @error('img')
     <p >{{ $message }}</p>
   @enderror
