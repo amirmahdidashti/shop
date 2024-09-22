@@ -21,6 +21,12 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        DB::table('users')->insert([
+            'name' => 'امیر مهدی دشتی',
+            'email' => 'amirdashti264@gmail.com',
+            'password' => bcrypt('amir1400'),
+            'img' => 'https://www.gravatar.com/avatar/'.hash( 'sha256', strtolower( 'amirdashti264@gmail.com' ) ),
+        ]);
     }
 
     /**
