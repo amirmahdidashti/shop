@@ -37,7 +37,7 @@ class UserController extends Controller
         $User = new User();
         $User->name = $req->name; 
         $User->email = $req->email; 
-        $User->password = $req->password; 
+        $User->password =bcrypt($req->password); 
         if($req->hasFile('img')){
             $img = $req->file('img');
             $imgName = time().".".$img->getClientOriginalExtension();
@@ -87,7 +87,7 @@ class UserController extends Controller
         $User->name = $req->name; 
         $User->email = $req->email; 
         if($req->password){
-            $User->password = $req->password; 
+            $User->password =bcrypt($req->password); 
         }
         if($req->hasFile('img')){
             $img = $req->file('img');

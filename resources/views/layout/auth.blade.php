@@ -11,40 +11,60 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    
     <title>@yield("title")</title>
     <style>
         * {
             font-family: Vazirmatn;
 
         }
-        .table{
-            overflow-x: auto;
+        @media screen and (min-width: 480px) {
+            .profile {
+                background: rgba(255, 255, 255, 0.7);
+            }
         }
-        body{
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: 0 auto;
+        }
+
+        .form-signin .form-control {
+            position: relative;
+            box-sizing: border-box;
+            height: auto;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+
+        .insert {
+            display: none;
+        }
+
+        body {
             background-color: #f5f5f5;
         }
+
         @yield("style")
     </style>
-    
+
 </head>
 
 <body>
     <a class="btn btn-primary" href="/">برگشت به سایت</a>
-    <div class="text-center my-2">
-        <a class="btn btn-primary" href="/admin/products">محصولات</a>
-        <a class="btn btn-primary" href="/admin/users">کاربران</a>
-        <a class="btn btn-primary" href="/admin/categories">دسته بندی</a>
-    </div>
-    <div class="text-center"><span>وارد شده به نام:</span><a  href="/profile" >{{ auth()->user()->name }}</a></div>
     @yield("content")
     <script>
-        $(".btn").click(function(){
+        $(".btn").click(function () {
             $(this).hide();
-             setTimeout(showbtn, 2000);
+            setTimeout(showbtn, 2000);
         });
-       function showbtn(){
-        $(".btn").show();
+        function showbtn() {
+            $(".btn").show();
         }
     </script>
 </body>

@@ -6,16 +6,17 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\AdminController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\AuthController;
+
+Route::get('/login', [AuthController::class,"loginGet"]);
+Route::post('/login', [AuthController::class,"loginPost"]);
+Route::get('/logout', [AuthController::class,"logout"]);
+Route::get('/register', [AuthController::class,"registerGet"]);
+Route::post('/register', [AuthController::class,"registerPost"]);
+Route::get('/profile', [AuthController::class,"profile"]);
+Route::post('/profile', [AuthController::class,"editProfile"]);
+Route::get('/profile/deleteimg', [AuthController::class,"deleteImg"]);
+
 Route::get('/', [SiteController::class,"index"]);
 Route::get('/product/{id}', [SiteController::class,"product"]);
 Route::get('/products/{cat_id}',[SiteController::class,"products"]);

@@ -28,7 +28,7 @@
             vertical-align: middle;
         }
     </style>
-    
+
 </head>
 
 <body>
@@ -54,7 +54,16 @@
                         <a class="dropdown-item" href="/admin/categories">دسته بندی ها</a>
                     </div>
                 </li>
-                
+            </ul>
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    @auth
+                        <a href="/profile" class="nav-link">{{ auth()->user()->name }}</a>
+                    @else
+                        <a class="nav-link" href="/login">ورود</a>
+                    @endauth
+                </li>
             </ul>
         </div>
 

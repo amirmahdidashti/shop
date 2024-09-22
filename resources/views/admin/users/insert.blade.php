@@ -35,7 +35,7 @@
   @error('email')
     <p >{{ $message }}</p>
   @enderror
-  <input type="email" class="form-control  @error('email') is-invalid @enderror" value="{{old("email")}}"  name="email" placeholder="ایمیل کاربر" >
+  <input type="text" class="form-control  @error('email') is-invalid @enderror" value="{{old("email")}}"  name="email" placeholder="ایمیل کاربر" >
   @error('password')
     <p >{{ $message }}</p>
   @enderror
