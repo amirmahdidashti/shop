@@ -36,7 +36,7 @@
         <a class="btn btn-primary" href="/admin/users">کاربران</a>
         <a class="btn btn-primary" href="/admin/categories">دسته بندی</a>
     </div>
-    <div class="text-center"><span>وارد شده به نام:</span><a  href="/profile" >{{ auth()->user()->name }}</a></div>
+    <div class="text-center"><span>وارد شده به نام: </span><a  href="/profile" >{{ auth()->user()->name }}</a></div>
     @yield("content")
     <script>
         $(".btn").click(function(){

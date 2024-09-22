@@ -5,6 +5,7 @@
 @section("content") 
 <div class="text-center my-2">
 <a class="text-center btn btn-primary" href="/admin/products/insert">اضافه کردن</a>
+</div>
 <div class="table">
 <table dir="rtl" class="table text-right table-striped">
   <thead>

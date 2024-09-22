@@ -46,13 +46,7 @@
                     <a class="nav-link" href="/products">همه محصولات</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/admin" data-toggle="dropdown"
-                        aria-expanded="false">مدیریت</a>
-                    <div class="dropdown-menu ">
-                        <a class="dropdown-item" href="/admin/users">کاربران</a>
-                        <a class="dropdown-item" href="/admin/products">محصولات</a>
-                        <a class="dropdown-item" href="/admin/categories">دسته بندی ها</a>
-                    </div>
+                    <a class="nav-link " href="/admin" >مدیریت</a>
                 </li>
             </ul>
 
