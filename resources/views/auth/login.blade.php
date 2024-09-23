@@ -12,6 +12,6 @@
     <p>{{ $message }}</p>
   @enderror
   <input type="password" class="form-control @error('password') is-invalid @enderror" value="{{old("password")}}"  name="password" placeholder="پسورد" >
-  <button class="btn btn-lg btn-primary btn-block" type="submit">ذخیره</button>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">ورود</button>
 </form>
 @endsection

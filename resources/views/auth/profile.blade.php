@@ -18,7 +18,7 @@
                 <form action="" method="post" class="form-signin text-center" enctype="multipart/form-data">
                 <a class="btn btn-danger mb-3 btn-block btn-lg" href="/logout">خروج</a>
                 @if (auth()->user()->img != "https://www.gravatar.com/avatar/" . hash('sha256', strtolower(trim(auth()->user()->email))))
-                <a class="btn btn-danger mb-3 btn-block btn-lg" href="/profile/deleteimg">حذف عکس</a>/a>
+                <a class="btn btn-danger mb-3 btn-block btn-lg" href="/profile/deleteimg">حذف عکس</a>
                 @endif
                 @csrf
                 @error('name')

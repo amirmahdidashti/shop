@@ -20,6 +20,6 @@
         <p>{{ $message }}</p>
     @enderror
     <input type="file" class="form-control @error('img') is-invalid @enderror" name="img" accept=".png,.jpg,.jpeg,.gif,.bmp,.ico">
-    <button class="btn btn-lg btn-primary btn-block" type="submit">ذخیره</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">ثبت نام</button>
 </form>
 @endsection
