@@ -40,8 +40,8 @@
     @yield("content")
     <script>
         $(".btn").click(function(){
-            $(this).hide();
-             setTimeout(showbtn, 2000);
+            $(".btn").hide(); 
+            setTimeout(showbtn, 2000);
         });
        function showbtn(){
         $(".btn").show();

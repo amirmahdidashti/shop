@@ -53,9 +53,10 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     @auth
-                        <a href="/profile" class="nav-link">{{ auth()->user()->name }}</a>
+                        <a href="/profile" class="nav-link text-light d-none d-md-block">{{ auth()->user()->name }}</a>
+                        <a href="/profile" class="nav-link text-light d-block d-md-none">پروفایل</a>
                     @else
-                        <a class="nav-link" href="/login">ورود</a>
+                        <a class="nav-link text-light" href="/login">ورود</a>
                     @endauth
                 </li>
             </ul>
