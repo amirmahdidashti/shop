@@ -4,8 +4,8 @@
 <div dir="rtl" class="container text-right rounded profile mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
-                    width="150px" height="150px" src="{{asset(auth()->user()->img . "?d=mp&s=150")}}"><span
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img  class="profile-img rounded-circle mt-5"
+                    src="{{asset(auth()->user()->img . "?d=mp&s=150")}}"><span
                     class="font-weight-bold">{{auth()->user()->name}}</span><span
                     class="text-black-50">{{auth()->user()->email}}</span><span>
                 </span></div>
@@ -34,7 +34,7 @@
                 @error('img')
                     <p>{{ $message }}</p>
                 @enderror
-                <input type="file" class="form-control @error('img') is-invalid @enderror" name="img">
+                <input type="file"  class="form-control @error('img') is-invalid @enderror" name="img" accept=".png,.jpg,.jpeg,.gif,.bmp,.ico">
                 <button class="btn btn-lg btn-primary btn-block" type="submit">ذخیره</button>
             </form>
             </div>

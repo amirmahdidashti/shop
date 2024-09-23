@@ -22,6 +22,12 @@
                 background: rgba(255, 255, 255, 0.7);
             }
         }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+        }
+        
         .form-signin {
             width: 100%;
             max-width: 330px;

@@ -10,7 +10,7 @@
         <!-- Category-->
         <div class="col-lg-3  col-sm-4 col-6 category-card border border-collapse">
             <div class="card border-0">
-                <a class="d-block" href="/product/{{$product->id}}"><img class="d-block"
+                <a class="d-block" href="/product/{{$product->id}}"><img class="img  d-block"
                         src="{{asset($product->img)}}" alt="{{$product->name}}"></a>
                 <div class="card-body pb-2">
                     <h2 class="h6 mb-2 text-right">{{$product->name}}</h2>
